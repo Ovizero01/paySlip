@@ -1,0 +1,26 @@
+﻿@model IEnumerable<paySlip.Models.StudentFee>
+
+@{
+    ViewData["Title"] = "Student Fee Details";
+}
+
+<h2>Student Fee Details</h2>
+
+@foreach (var student in Model)
+{
+    <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+        <p><strong>Student ID:</strong> @student.StudentId</p>
+        <p><strong>Name:</strong> @student.Name</p>
+        <p><strong>Department:</strong> @student.Department</p>
+        <p><strong>Course:</strong> @student.Course</p>
+        <p><strong>Semester:</strong> @student.Semester</p>
+        <p><strong>Amount Paid:</strong> @student.AmountPaid</p>
+        <p><strong>Total Fee:</strong> @student.TotalFee</p>
+        <p><strong>Payment Date:</strong> @student.PaymentDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Payment Method:</strong> @student.PaymentMethod</p>
+        <p><strong>Transaction ID:</strong> @student.TransactionId</p>
+    </div>
+}
+
+
+<a href="@Url.Action("DownloadPdf", "StudentFee")" class="btn btn-primary">Download PDF</a>
